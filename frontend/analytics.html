@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Student Performance Dashboard - Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/frontend/style/model_style.css">
+</head>
+<body data-color-scheme="light" data-page-id="analytics">
+    <div id="appContainer" class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="header-logo">
+                        <span class="logo-icon-small">🎓</span>
+                        <h1 class="header-title">ML Performance Dashboard</h1>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="header-action" id="themeToggleHeader">
+                            <span class="action-icon" id="themeIconHeader">🌙</span>
+                        </button>
+                        <div class="user-menu">
+                            <button class="user-button" id="userMenuToggle">
+                                <span class="user-avatar" id="userAvatar">👤</span>
+                                <span class="user-name" id="userName">User</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </button>
+                            <div class="user-dropdown hidden" id="userDropdown">
+                                <div class="user-info">
+                                    <div class="user-details">
+                                        <div class="user-display-name" id="userDisplayName">John Doe</div>
+                                        <div class="user-email" id="userEmail">john.doe@university.edu</div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item" id="profileBtn">
+                                    <span class="item-icon">👤</span>
+                                    Profile Settings
+                                </a>
+                                <a href="#" class="dropdown-item" id="settingsBtn">
+                                    <span class="item-icon">⚙️</span>
+                                    Dashboard Settings
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+                                    <span class="item-icon">🚪</span>
+                                    Sign Out
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="layout">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar">
+                <div class="nav-menu">
+                    <a href="dashboard.html" class="nav-item">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Overview</span>
+                    </a>
+                    <a href="prediction.html" class="nav-item">
+                        <span class="nav-icon">🎯</span>
+                        <span class="nav-text">Make Prediction</span>
+                    </a>
+                    <a href="analytics.html" class="nav-item active">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">Analytics</span>
+                    </a>
+                    <a href="history.html" class="nav-item">
+                        <span class="nav-icon">📝</span>
+                        <span class="nav-text">History</span>
+                    </a>
+                    <a href="about.html" class="nav-item">
+                        <span class="nav-icon">ℹ️</span>
+                        <span class="nav-text">About</span>
+                    </a>
+                </div>
+            </nav>
+
+            <main class="main-content">
+                <section id="analytics" class="content-section active">
+                    <div class="section-header">
+                        <h2>Analytics & Insights</h2>
+                        <p class="section-subtitle">Explore data trends and model insights</p>
+                    </div>
+
+                    <div class="analytics-grid">
+                        <div class="chart-container" style="position: relative; height: 400px;">
+                            <div class="chart-header">
+                                <h3>Performance Trends</h3>
+                                <p class="chart-subtitle">Monthly performance distribution</p>
+                            </div>
+                            <canvas id="trendsChart"></canvas>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 400px;">
+                            <div class="chart-header">
+                                <h3>Model Metrics</h3>
+                                <p class="chart-subtitle">Accuracy, precision, recall, F1-score</p>
+                            </div>
+                            <canvas id="metricsChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <div id="toastContainer" class="toast-container"></div>
+    <script src="/model.js"></script>
+</body>
+</html>

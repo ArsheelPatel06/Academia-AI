@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ML Student Performance Dashboard - Advanced Prediction System">
+    <meta name="keywords" content="machine learning, student performance, prediction, analytics, education">
+    <title>ML Student Performance Dashboard - Overview</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/frontend/style/model_style.css">
+</head>
+<body data-color-scheme="light" data-page-id="overview">
+    <!-- Main Application -->
+    <div id="appContainer" class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="header-logo">
+                        <span class="logo-icon-small">🎓</span>
+                        <h1 class="header-title">Academia Ai</h1>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="header-action" id="themeToggleHeader">
+                            <span class="action-icon" id="themeIconHeader">🌙</span>
+                        </button>
+                        <div class="user-menu">
+                            <button class="user-button" id="userMenuToggle">
+                                <span class="user-avatar" id="userAvatar">👤</span>
+                                <span class="user-name" id="userName">User</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </button>
+                            <div class="user-dropdown hidden" id="userDropdown">
+                                <div class="user-info">
+                                    <div class="user-details">
+                                        <div class="user-display-name" id="userDisplayName">John Doe</div>
+                                        <div class="user-email" id="userEmail">john.doe@university.edu</div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item" id="profileBtn">
+                                    <span class="item-icon">👤</span>
+                                    Profile Settings
+                                </a>
+                                <a href="#" class="dropdown-item" id="settingsBtn">
+                                    <span class="item-icon">⚙️</span>
+                                    Dashboard Settings
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+                                    <span class="item-icon">🚪</span>
+                                    Sign Out
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <div class="layout">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar">
+                <div class="nav-menu">
+                    <a href="dashboard.html" class="nav-item active">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Overview</span>
+                    </a>
+                    <a href="prediction.html" class="nav-item">
+                        <span class="nav-icon">🎯</span>
+                        <span class="nav-text">Make Prediction</span>
+                    </a>
+                    <a href="analytics.html" class="nav-item">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">Analytics</span>
+                    </a>
+                    <a href="history.html" class="nav-item">
+                        <span class="nav-icon">📝</span>
+                        <span class="nav-text">History</span>
+                    </a>
+                    <a href="about.html" class="nav-item">
+                        <span class="nav-icon">ℹ️</span>
+                        <span class="nav-text">About</span>
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Welcome Banner -->
+                <div class="welcome-banner">
+                    <div class="welcome-content">
+                        <h2 class="welcome-title">Welcome back, <span id="welcomeUserName">User</span>!</h2>
+                        <p class="welcome-subtitle">Monitor student performance and make predictions with advanced ML models</p>
+                    </div>
+                    <div class="welcome-stats">
+                        <div class="quick-stat">
+                            <div class="stat-value" id="quickTotalPredictions">145</div>
+                            <div class="stat-label">Total Predictions</div>
+                        </div>
+                        <div class="quick-stat">
+                            <div class="stat-value" id="quickAccuracy">89.2%</div>
+                            <div class="stat-label">Model Accuracy</div>
+                        </div>
+                        <div class="quick-stat">
+                            <div class="stat-value" id="quickConfidence">84%</div>
+                            <div class="stat-label">Avg Confidence</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <div class="section-header">
+                        <h2>Dashboard Overview</h2>
+                        <p class="section-subtitle">Monitor model performance and recent predictions</p>
+                    </div>
+
+                    <!-- Metrics Cards -->
+                    <div class="metrics-grid">
+                        <div class="metric-card excellent">
+                            <div class="metric-icon">🎯</div>
+                            <div class="metric-content">
+                                <div class="metric-value" id="accuracyValue">89.2%</div>
+                                <div class="metric-label">Model Accuracy</div>
+                            </div>
+                            <div class="metric-trend">+2.3%</div>
+                        </div>
+                        <div class="metric-card good">
+                            <div class="metric-icon">📊</div>
+                            <div class="metric-content">
+                                <div class="metric-value" id="totalPredictions">145</div>
+                                <div class="metric-label">Total Predictions</div>
+                            </div>
+                            <div class="metric-trend">+12</div>
+                        </div>
+                        <div class="metric-card average">
+                            <div class="metric-icon">✅</div>
+                            <div class="metric-content">
+                                <div class="metric-value" id="correctPredictions">129</div>
+                                <div class="metric-label">Correct Predictions</div>
+                            </div>
+                            <div class="metric-trend">+11</div>
+                        </div>
+                        <div class="metric-card info">
+                            <div class="metric-icon">👥</div>
+                            <div class="metric-content">
+                                <div class="metric-value" id="activeUsers">47</div>
+                                <div class="metric-label">Active Students</div>
+                            </div>
+                            <div class="metric-trend">+5</div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="charts-row">
+                        <div class="chart-container" style="position: relative; height: 350px;">
+                            <div class="chart-header">
+                                <h3>Performance Distribution</h3>
+                                <p class="chart-subtitle">Student performance categories</p>
+                            </div>
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 350px;">
+                            <div class="chart-header">
+                                <h3>Feature Importance</h3>
+                                <p class="chart-subtitle">ML model feature weights</p>
+                            </div>
+                            <canvas id="featureChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Recent Predictions -->
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Recent Predictions</h3>
+                            <a href="history.html" class="btn btn--outline btn--sm">View All</a>
+                        </div>
+                        <div class="card__body">
+                            <div class="predictions-grid" id="predictionsGrid">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="/model.js"></script>
+</body>
+</html>

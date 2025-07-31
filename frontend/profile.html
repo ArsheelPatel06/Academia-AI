@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Academia AI - Intelligent Education Management System"
+    />
+    <meta
+      name="keywords"
+      content="education, AI, attendance, schedule, teacher, dashboard"
+    />
+    <title>Academia AI - Teacher Profile</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Main Application -->
+    <div id="mainApp" class="main-app">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Academia AI</span>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <div class="welcome-text">
+            <span id="welcomeGreeting">Welcome, Professor!</span>
+            <span id="userName">Smith</span>
+            <span class="status-badge active">Active</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search..." />
+          </div>
+
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </div>
+
+          <div class="user-profile">
+            <div class="profile-avatar" id="profileAvatar">S</div>
+            <span class="profile-name">Prof. Smith</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Layout -->
+      <div class="app-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+          <div class="nav-menu">
+            <a href="dashboard.html" class="nav-item">
+              <i class="fas fa-home"></i>
+              <span>Overview</span>
+            </a>
+            <a href="attendance.html" class="nav-item">
+              <i class="fas fa-check"></i>
+              <span>Attendance</span>
+            </a>
+            <a href="classes.html" class="nav-item">
+              <i class="fas fa-desktop"></i>
+              <span>Classes</span>
+            </a>
+            <a href="calendar.html" class="nav-item">
+              <i class="fas fa-calendar"></i>
+              <span>Calendar</span>
+            </a>
+            <a href="prediction.html" class="nav-item">
+              <span style="font-size: 1.2em">🎯</span>
+              <span>Prediction</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+              <span style="font-size: 1.2em">📈</span>
+              <span>Analytics</span>
+            </a>
+            <a href="about.html" class="nav-item">
+              <span style="font-size: 1.2em">ℹ️</span>
+              <span>About</span>
+            </a>
+            <a href="graph.html" class="nav-item">
+              <span style="font-size: 1.2em">📊</span>
+              <span>Graph</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+              <i class="fas fa-user"></i>
+              <span>Profile</span>
+            </a>
+          </div>
+
+          <div class="sidebar-actions">
+            <a href="login.html" class="action-btn primary">
+              <span>Login</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="index.html" class="action-btn secondary">
+              <span>Sign Out</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+          <!-- Teacher Profile Page -->
+          <div id="profilePage" class="page active">
+            <div class="page-header">
+              <h2><i class="fas fa-graduation-cap"></i> Teacher Profile</h2>
+              <p>
+                Welcome to your Academia-AI dashboard. Here you can view and
+                manage your professional profile, teaching schedule, and
+                academic resources.
+              </p>
+            </div>
+
+            <div class="profile-layout">
+              <div class="profile-summary">
+                <div class="profile-avatar-large">S</div>
+                <h3>Prof. Smith</h3>
+                <div class="profile-role">
+                  <i class="fas fa-building"></i>
+                  Computer Science • Professor
+                </div>
+                <div class="profile-id">Faculty ID: FAC2023001</div>
+
+                <div class="contact-info">
+                  <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>jhon.smith@university.edu</span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 987-6543</span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 University Drive, University City, UC 12345</span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Joined: August 2010 (15 years)</span>
+                  </div>
+                </div>
+
+                <button class="edit-profile-btn">
+                  <i class="fas fa-edit"></i>
+                  Edit Profile
+                </button>
+              </div>
+
+              <div class="professional-info">
+                <div class="info-header">
+                  <h3>
+                    <i class="fas fa-building"></i> Professional Information
+                  </h3>
+                  <div class="header-actions">
+                    <button class="action-icon" aria-label="Print profile">
+                      <i class="fas fa-print"></i>
+                    </button>
+                    <button class="action-icon" aria-label="Download profile">
+                      <i class="fas fa-download"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="info-grid">
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-user"></i>
+                      Full Name
+                    </div>
+                    <div class="info-value">Prof. Jhon Smith</div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-building"></i>
+                      Faculty ID
+                    </div>
+                    <div class="info-value">FAC2023001</div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-at"></i>
+                      Email Address
+                    </div>
+                    <div class="info-value">emily.white@university.edu</div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-building"></i>
+                      Department
+                    </div>
+                    <div class="info-value">Computer Science</div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-phone"></i>
+                      Phone Number
+                    </div>
+                    <div class="info-value">+1 (555) 987-6543</div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-briefcase"></i>
+                      Years of Experience
+                    </div>
+                    <div class="info-value">15 Years</div>
+                  </div>
+
+                  <div class="info-item full-width">
+                    <div class="info-label">
+                      <i class="fas fa-star"></i>
+                      Specialization
+                    </div>
+                    <div class="info-value">
+                      <div class="specialization-label">Primary Areas</div>
+                      <div class="specialization-tags">
+                        <span class="tag">Artificial Intelligence</span>
+                        <span class="tag">Data Structures</span>
+                        <span class="tag">Machine Learning</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="info-item">
+                    <div class="info-label">
+                      <i class="fas fa-calendar"></i>
+                      Date of Joining
+                    </div>
+                    <div class="info-value">August 15, 2010</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+    <script>
+      // Authentication check
+      document.addEventListener("DOMContentLoaded", function () {
+        const isLoggedIn =
+          localStorage.getItem("isLoggedIn") ||
+          sessionStorage.getItem("isLoggedIn");
+        if (isLoggedIn !== "true") {
+          window.location.href = "/frontend/login.html";
+          return;
+        }
+
+        // Update user interface with logged-in user info
+        const userEmail =
+          localStorage.getItem("userEmail") ||
+          sessionStorage.getItem("userEmail");
+        const userRole =
+          localStorage.getItem("userRole") ||
+          sessionStorage.getItem("userRole");
+
+        if (userEmail) {
+          const userName = userEmail
+            .split("@")[0]
+            .replace(".", " ")
+            .replace("prof", "Prof.");
+          const welcomeGreeting = document.getElementById("welcomeGreeting");
+          const userNameElement = document.getElementById("userName");
+          const profileName = document.querySelector(".profile-name");
+          const profileAvatar = document.getElementById("profileAvatar");
+
+          if (welcomeGreeting)
+            welcomeGreeting.textContent = `Welcome, ${
+              userRole === "admin" ? "Administrator" : "Professor"
+            }!`;
+          if (userNameElement)
+            userNameElement.textContent = userName.split(" ").pop();
+          if (profileName) profileName.textContent = userName;
+          if (profileAvatar)
+            profileAvatar.textContent = userName.charAt(0).toUpperCase();
+        }
+
+        // Handle sign out
+        const signOutBtn = document.querySelector('a[href="index.html"]');
+        if (signOutBtn) {
+          signOutBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Clear authentication data
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("userEmail");
+            localStorage.removeItem("userRole");
+            sessionStorage.removeItem("isLoggedIn");
+            sessionStorage.removeItem("userEmail");
+            sessionStorage.removeItem("userRole");
+
+            // Redirect to login
+            window.location.href = "/frontend/login.html";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

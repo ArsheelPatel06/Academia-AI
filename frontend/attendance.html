@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Academia AI - Intelligent Education Management System"
+    />
+    <meta
+      name="keywords"
+      content="education, AI, attendance, schedule, teacher, dashboard"
+    />
+    <title>Academia AI - Attendance Management</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Main Application -->
+    <div id="mainApp" class="main-app">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Academia AI</span>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <div class="welcome-text">
+            <span id="welcomeGreeting">Welcome, Professor!</span>
+            <span id="userName">Smith</span>
+            <span class="status-badge active">Active</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search..." />
+          </div>
+
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </div>
+
+          <div class="user-profile">
+            <div class="profile-avatar" id="profileAvatar">S</div>
+            <span class="profile-name">Prof. Smith</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Layout -->
+      <div class="app-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+          <div class="nav-menu">
+            <a href="dashboard.html" class="nav-item">
+              <i class="fas fa-home"></i>
+              <span>Overview</span>
+            </a>
+            <a href="attendance.html" class="nav-item active">
+              <i class="fas fa-check"></i>
+              <span>Attendance</span>
+            </a>
+            <a href="classes.html" class="nav-item">
+              <i class="fas fa-desktop"></i>
+              <span>Classes</span>
+            </a>
+            <a href="calendar.html" class="nav-item">
+              <i class="fas fa-calendar"></i>
+              <span>Calendar</span>
+            </a>
+            <a href="prediction.html" class="nav-item">
+              <span style="font-size: 1.2em">🎯</span>
+              <span>Prediction</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+              <span style="font-size: 1.2em">📈</span>
+              <span>Analytics</span>
+            </a>
+            <a href="about.html" class="nav-item">
+              <span style="font-size: 1.2em">ℹ️</span>
+              <span>About</span>
+            </a>
+            <a href="graph.html" class="nav-item">
+              <span style="font-size: 1.2em">📊</span>
+              <span>Graph</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+              <i class="fas fa-user"></i>
+              <span>Profile</span>
+            </a>
+          </div>
+
+          <div class="sidebar-actions">
+            <a href="login.html" class="action-btn primary">
+              <span>Login</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="index.html" class="action-btn secondary">
+              <span>Sign Out</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+          <!-- Attendance Management Page -->
+          <div id="attendancePage" class="page active">
+            <div class="page-header">
+              <h2>Attendance Management</h2>
+              <p>
+                Track and manage student attendance for your classes. Mark
+                attendance, view history, and generate reports.
+              </p>
+              <button class="export-btn" aria-label="Export attendance report">
+                <i class="fas fa-download"></i>
+                Export Report
+              </button>
+            </div>
+
+            <div class="filters-section">
+              <div class="filter-group">
+                <label for="class-filter">Class</label>
+                <select class="filter-select" id="class-filter">
+                  <option>Mathematics 101 - Mon/Wed 9:00 AM</option>
+                  <option>Physics 201 - Tue/Thu 10:30 AM</option>
+                  <option>Chemistry 101 - Mon/Wed 2:00 PM</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label for="date-filter">Date</label>
+                <select class="filter-select" id="date-filter">
+                  <option>Today - May 15, 2023</option>
+                  <option>Yesterday - May 14, 2023</option>
+                  <option>Last Week</option>
+                </select>
+              </div>
+              <div class="filter-group">
+                <label for="status-filter">Status</label>
+                <select class="filter-select" id="status-filter">
+                  <option>All Students</option>
+                  <option>Present Only</option>
+                  <option>Absent Only</option>
+                  <option>Late Only</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon purple">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                  <div class="stat-value">24</div>
+                  <div class="stat-label">Total Students</div>
+                  <div class="stat-change positive">↑ 2 from last session</div>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon green">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div class="stat-content">
+                  <div class="stat-value">18</div>
+                  <div class="stat-label">Present</div>
+                  <div class="stat-change positive">↑ 75% attendance</div>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon red">
+                  <i class="fas fa-times"></i>
+                </div>
+                <div class="stat-content">
+                  <div class="stat-value">4</div>
+                  <div class="stat-label">Absent</div>
+                  <div class="stat-change negative">↑ 2 more than average</div>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon orange">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                  <div class="stat-value">2</div>
+                  <div class="stat-label">Late Arrivals</div>
+                  <div class="stat-change neutral">= Same as last session</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="attendance-section">
+              <div class="section-header">
+                <h3>Student Attendance</h3>
+                <div class="search-container">
+                  <i class="fas fa-search"></i>
+                  <input
+                    type="text"
+                    placeholder="Search students..."
+                    class="search-input"
+                  />
+                </div>
+              </div>
+
+              <div class="attendance-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>STUDENT</th>
+                      <th>STUDENT ID</th>
+                      <th>STATUS</th>
+                      <th>LAST ATTENDANCE</th>
+                      <th>ACTIONS</th>
+                    </tr>
+                  </thead>
+                  <tbody id="attendanceTableBody">
+                    <!-- Attendance data will be populated by JavaScript -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+    <script>
+      // Authentication check
+      document.addEventListener("DOMContentLoaded", function () {
+        const isLoggedIn =
+          localStorage.getItem("isLoggedIn") ||
+          sessionStorage.getItem("isLoggedIn");
+        if (isLoggedIn !== "true") {
+          window.location.href = "login.html";
+          return;
+        }
+
+        // Update user interface with logged-in user info
+        const userEmail =
+          localStorage.getItem("userEmail") ||
+          sessionStorage.getItem("userEmail");
+        const userRole =
+          localStorage.getItem("userRole") ||
+          sessionStorage.getItem("userRole");
+
+        if (userEmail) {
+          const userName = userEmail
+            .split("@")[0]
+            .replace(".", " ")
+            .replace("prof", "Prof.");
+          const welcomeGreeting = document.getElementById("welcomeGreeting");
+          const userNameElement = document.getElementById("userName");
+          const profileName = document.querySelector(".profile-name");
+          const profileAvatar = document.getElementById("profileAvatar");
+
+          if (welcomeGreeting)
+            welcomeGreeting.textContent = `Welcome, ${
+              userRole === "admin" ? "Administrator" : "Professor"
+            }!`;
+          if (userNameElement)
+            userNameElement.textContent = userName.split(" ").pop();
+          if (profileName) profileName.textContent = userName;
+          if (profileAvatar)
+            profileAvatar.textContent = userName.charAt(0).toUpperCase();
+        }
+
+        // Handle sign out
+        const signOutBtn = document.querySelector('a[href="index.html"]');
+        if (signOutBtn) {
+          signOutBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Clear authentication data
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("userEmail");
+            localStorage.removeItem("userRole");
+            sessionStorage.removeItem("isLoggedIn");
+            sessionStorage.removeItem("userEmail");
+            sessionStorage.removeItem("userRole");
+
+            // Redirect to login
+            window.location.href = "/frontend/login.html";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

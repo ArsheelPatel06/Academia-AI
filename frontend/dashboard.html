@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Academia AI - Intelligent Education Management System"
+    />
+    <meta
+      name="keywords"
+      content="education, AI, attendance, schedule, teacher, dashboard"
+    />
+    <title>Academia AI - Dashboard</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Main Application -->
+    <div id="mainApp" class="main-app">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Academia AI</span>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <div class="welcome-text">
+            <span id="welcomeGreeting">Welcome, Professor!</span>
+            <span id="userName">Smith</span>
+            <span class="status-badge active">Active</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search..." />
+          </div>
+
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </div>
+
+          <div class="user-profile">
+            <div class="profile-avatar" id="profileAvatar">S</div>
+            <span class="profile-name">Prof. Smith</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Layout -->
+      <div class="app-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+          <div class="nav-menu">
+            <a href="dashboard.html" class="nav-item active">
+              <i class="fas fa-home"></i>
+              <span>Overview</span>
+            </a>
+            <a href="attendance.html" class="nav-item">
+              <i class="fas fa-check"></i>
+              <span>Attendance</span>
+            </a>
+            <a href="classes.html" class="nav-item">
+              <i class="fas fa-desktop"></i>
+              <span>Classes</span>
+            </a>
+            <a href="calendar.html" class="nav-item">
+              <i class="fas fa-calendar"></i>
+              <span>Calendar</span>
+            </a>
+            <a href="prediction.html" class="nav-item">
+              <span style="font-size: 1.2em">🎯</span>
+              <span>Prediction</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+              <span style="font-size: 1.2em">📈</span>
+              <span>Analytics</span>
+            </a>
+            <a href="about.html" class="nav-item">
+              <span style="font-size: 1.2em">ℹ️</span>
+              <span>About</span>
+            </a>
+            <a href="graph.html" class="nav-item">
+              <span style="font-size: 1.2em">📊</span>
+              <span>Graph</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+              <i class="fas fa-user"></i>
+              <span>Profile</span>
+            </a>
+          </div>
+
+          <div class="sidebar-actions">
+            <a href="login.html" class="action-btn primary">
+              <span>Login</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="index.html" class="action-btn secondary">
+              <span>Sign Out</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+          <!-- Dashboard Page -->
+          <div id="dashboardPage" class="page active">
+            <div class="page-header">
+              <h2>Dashboard Overview</h2>
+              <p>Monitor your classes, attendance, and academic activities</p>
+            </div>
+
+            <div class="dashboard-grid">
+              <!-- Today's Classes -->
+              <div class="dashboard-card">
+                <h3>Today's Classes</h3>
+                <div class="class-list">
+                  <div class="class-item">
+                    <div class="class-icon math">√</div>
+                    <div class="class-info">
+                      <div class="class-name">Mathematics</div>
+                      <div class="class-details">
+                        Prof. Joe • 03/15/22 • Algebra basics - Chapter 3:
+                        Quadratic Equations
+                      </div>
+                    </div>
+                  </div>
+                  <div class="class-item">
+                    <div class="class-icon physics">⚙️</div>
+                    <div class="class-info">
+                      <div class="class-name">Physics</div>
+                      <div class="class-details">
+                        Prof. Lee • 03/15/22 • Newton's laws of motion -
+                        Practical applications
+                      </div>
+                    </div>
+                  </div>
+                  <div class="class-item">
+                    <div class="class-icon chemistry">🧪</div>
+                    <div class="class-info">
+                      <div class="class-name">Chemistry</div>
+                      <div class="class-details">
+                        Prof. Davis • 03/15/22 • Atomic structure - Electron
+                        configuration
+                      </div>
+                    </div>
+                  </div>
+                  <div class="class-item">
+                    <div class="class-icon biology">🧬</div>
+                    <div class="class-info">
+                      <div class="class-name">Biology</div>
+                      <div class="class-details">
+                        Prof. Wilson • 03/15/22 • Cell biology - Mitochondria
+                        and ATP production
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mark Attendance -->
+              <div class="dashboard-card">
+                <h3>Mark Attendance</h3>
+                <form class="attendance-form">
+                  <div class="form-group">
+                    <label for="subject-select">Subject</label>
+                    <select class="form-control" id="subject-select">
+                      <option>Select Subject</option>
+                      <option>Mathematics</option>
+                      <option>Physics</option>
+                      <option>Chemistry</option>
+                      <option>Biology</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="time-input">Time</label>
+                    <div class="time-input">
+                      <input
+                        type="time"
+                        value="09:00"
+                        class="form-control"
+                        id="time-input"
+                      />
+                      <i class="fas fa-clock"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Day</label>
+                    <div class="day-buttons">
+                      <button type="button" class="day-btn">Mon</button>
+                      <button type="button" class="day-btn active">Tue</button>
+                      <button type="button" class="day-btn">Wed</button>
+                      <button type="button" class="day-btn">Thu</button>
+                      <button type="button" class="day-btn">Fri</button>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="mark-attendance-btn">
+                    <i class="fas fa-check"></i>
+                    Mark as Present
+                  </button>
+                </form>
+              </div>
+
+              <!-- My Calendar -->
+              <div class="dashboard-card">
+                <h3>My Calendar</h3>
+                <div class="calendar-header">
+                  <button class="calendar-nav" aria-label="Previous month">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <span class="calendar-month">March 2022</span>
+                  <button class="calendar-nav" aria-label="Next month">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+                <div class="calendar-grid">
+                  <div class="calendar-weekdays">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                  </div>
+                  <div class="calendar-days" id="calendarDays">
+                    <!-- Calendar days will be populated by JavaScript -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- News & Updates -->
+              <div class="dashboard-card">
+                <h3>News & Updates</h3>
+                <div class="news-content">
+                  <div class="featured-news">
+                    <div class="news-image">
+                      <img
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDIwMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTIwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNDAiIHI9IjE1IiBmaWxsPSIjM0I4MkY2Ii8+CjxjaXJjbGUgY3g9IjE1MCIgY3k9IjQwIiByPSIxNSIgZmlsbD0iIzNCODJGNiIvPgo8cGF0aCBkPSJNNDAgODBDNDAgNjAgNjAgNDAgODAgNDBIMTIwQzE0MCA0MCAxNjAgNjAgMTYwIDgwIiBzdHJva2U9IiMzQjgyRjYiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K"
+                        alt="Classroom"
+                      />
+                    </div>
+                    <div class="news-overlay">
+                      <h4>Annual Science Fair</h4>
+                      <p>Register your students before March 20th</p>
+                    </div>
+                  </div>
+
+                  <div class="news-list">
+                    <div class="news-item">
+                      <i class="fas fa-bullhorn"></i>
+                      <span
+                        >School will be closed on March 20th for
+                        maintenance</span
+                      >
+                    </div>
+                    <div class="news-item">
+                      <i class="fas fa-file-alt"></i>
+                      <span
+                        >New curriculum guidelines have been released for
+                        review</span
+                      >
+                    </div>
+                    <div class="news-item">
+                      <i class="fas fa-users"></i>
+                      <span
+                        >Parent-teacher meetings scheduled for next week</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+    <script>
+      // Authentication check
+      document.addEventListener("DOMContentLoaded", function () {
+        const isLoggedIn =
+          localStorage.getItem("isLoggedIn") ||
+          sessionStorage.getItem("isLoggedIn");
+        if (isLoggedIn !== "true") {
+          window.location.href = "/frontend/login.html";
+          return;
+        }
+
+        // Update user interface with logged-in user info
+        const userEmail =
+          localStorage.getItem("userEmail") ||
+          sessionStorage.getItem("userEmail");
+        const userRole =
+          localStorage.getItem("userRole") ||
+          sessionStorage.getItem("userRole");
+
+        if (userEmail) {
+          const userName = userEmail
+            .split("@")[0]
+            .replace(".", " ")
+            .replace("prof", "Prof.");
+          const welcomeGreeting = document.getElementById("welcomeGreeting");
+          const userNameElement = document.getElementById("userName");
+          const profileName = document.querySelector(".profile-name");
+          const profileAvatar = document.getElementById("profileAvatar");
+
+          if (welcomeGreeting)
+            welcomeGreeting.textContent = `Welcome, ${
+              userRole === "admin" ? "Administrator" : "Professor"
+            }!`;
+          if (userNameElement)
+            userNameElement.textContent = userName.split(" ").pop();
+          if (profileName) profileName.textContent = userName;
+          if (profileAvatar)
+            profileAvatar.textContent = userName.charAt(0).toUpperCase();
+        }
+
+        // Handle sign out
+        const signOutBtn = document.querySelector('a[href="index.html"]');
+        if (signOutBtn) {
+          signOutBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Clear authentication data
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("userEmail");
+            localStorage.removeItem("userRole");
+            sessionStorage.removeItem("isLoggedIn");
+            sessionStorage.removeItem("userEmail");
+            sessionStorage.removeItem("userRole");
+
+            // Redirect to login
+            window.location.href = "/frontend/login.html";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

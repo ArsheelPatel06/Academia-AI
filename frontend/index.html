@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Academia AI - Intelligent Education Management System"
+    />
+    <meta
+      name="keywords"
+      content="education, AI, attendance, schedule, teacher, dashboard"
+    />
+    <title>Academia AI - Welcome</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Welcome Page -->
+    <div class="welcome-page">
+      <div class="welcome-container">
+        <div class="welcome-card">
+          <div class="welcome-header">
+            <div class="logo-section">
+              <div class="logo-icon">🎓</div>
+              <h1>Academia AI</h1>
+            </div>
+            <p class="welcome-subtitle">
+              Intelligent Education Management System
+            </p>
+          </div>
+
+          <div class="welcome-content">
+            <h2>Welcome to Academia AI</h2>
+            <p>Choose your destination:</p>
+
+            <div class="page-links">
+              <a href="login.html" class="page-link">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Login Page</span>
+              </a>
+
+              <a href="dashboard.html" class="page-link">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+              </a>
+
+              <a href="attendance.html" class="page-link">
+                <i class="fas fa-check"></i>
+                <span>Attendance Management</span>
+              </a>
+
+              <a href="classes.html" class="page-link">
+                <i class="fas fa-desktop"></i>
+                <span>Classes & Schedule</span>
+              </a>
+
+              <a href="calendar.html" class="page-link">
+                <i class="fas fa-calendar"></i>
+                <span>Calendar</span>
+              </a>
+
+              <a href="profile.html" class="page-link">
+                <i class="fas fa-user"></i>
+                <span>Teacher Profile</span>
+              </a>
+            </div>
+
+            <div class="demo-info">
+              <h4>Demo Credentials</h4>
+              <div class="demo-item">
+                <strong>Admin:</strong> admin@academia.edu / admin123
+              </div>
+              <div class="demo-item">
+                <strong>Teacher:</strong> prof.smith@academia.edu / teacher123
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/app.js"></script>
+    <script>
+      // Check authentication status on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        const isLoggedIn =
+          localStorage.getItem("isLoggedIn") ||
+          sessionStorage.getItem("isLoggedIn");
+
+        if (isLoggedIn === "true") {
+          // User is already logged in, redirect to dashboard
+          window.location.href = "dashboard.html";
+        }
+        // If not logged in, stay on welcome page
+      });
+    </script>
+  </body>
+</html>
