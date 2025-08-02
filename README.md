@@ -1,303 +1,214 @@
-# Academia AI - Education Management System
+# Academia AI - Intelligent Education Management System
 
-A modern, intelligent education management system designed for educational institutions to manage attendance, schedules, courses, and student information efficiently.
+A modern, responsive web application for educational institutions to manage students, attendance, schedules, and academic analytics.
 
-## 🎓 Features
+## 🌟 Features
 
-### 📊 Dashboard
+### 📊 **Dashboard & Analytics**
 
-- **Overview Statistics**: View total students, courses, and attendance metrics
-- **Interactive Calendar**: Monthly calendar view with course schedules
-- **Quick Actions**: Easy access to common tasks
-- **Real-time Updates**: Live data updates and notifications
+- **Overview Dashboard** - Real-time statistics and key metrics
+- **Student Performance Analytics** - AI-powered grade predictions
+- **Attendance Tracking** - Comprehensive attendance management
+- **Interactive Charts** - Performance distribution and feature importance visualizations
 
-### 👥 Attendance Management
+### 📅 **Calendar & Scheduling**
 
-- **Student Tracking**: Mark attendance for individual students
-- **Status Options**: Present, Absent, Late, and Pending statuses
-- **Bulk Operations**: Mark attendance for multiple students at once
-- **Export Reports**: Generate and export attendance reports
-- **Search & Filter**: Find students quickly with search functionality
+- **Interactive Calendar** - Monthly view with event management
+- **Event Management** - Add, edit, and delete academic events
+- **Lecture Scheduling** - Subject-specific lecture organization
+- **Color-coded Events** - Visual categorization system
 
-### 📚 Course Management
+### 👥 **Student Management**
 
-- **Course Overview**: View all courses with detailed information
-- **Schedule Display**: Visual representation of course schedules
-- **Room Management**: Track classroom assignments
-- **Student Enrollment**: Monitor course enrollment numbers
-- **Professor Assignment**: Link courses to teaching staff
+- **Class Management** - Detailed class information and schedules
+- **Attendance Tracking** - Real-time attendance marking
+- **Assignment Management** - Track assignments and due dates
+- **Notes System** - Academic notes and observations
 
-### 📅 Calendar & Scheduling
+### 🎨 **Modern UI/UX**
 
-- **Monthly View**: Interactive calendar with course events
-- **Event Management**: Add and manage academic events
-- **Schedule Conflicts**: Identify and resolve scheduling conflicts
-- **Export Options**: Export calendar data in various formats
+- **Dark/Light Mode** - Complete theme switching
+- **Responsive Design** - Works on all devices
+- **Interactive Elements** - Smooth animations and transitions
+- **Professional Interface** - Clean, modern design
 
-### 👤 User Management
+## 🚀 Quick Start
 
-- **Role-based Access**: Admin and Teacher roles with different permissions
-- **Profile Management**: Update personal information and preferences
-- **Authentication**: Secure login with JWT tokens
-- **Session Management**: Remember me functionality
+### Option 1: GitHub Pages (Recommended)
 
-## 🚀 Getting Started
+1. **Fork this repository** to your GitHub account
+2. **Enable GitHub Pages**:
+   - Go to Settings → Pages
+   - Source: Deploy from a branch
+   - Branch: `gh-pages` (will be created automatically)
+   - Save
+3. **Access your site**: `https://yourusername.github.io/repository-name`
 
-### Prerequisites
+### Option 2: Local Development
 
-- Python 3.8 or higher
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-
-### Installation
-
-1. **Clone the repository**
+1. **Clone the repository**:
 
    ```bash
-   git clone <repository-url>
-   cd ml-dashboard-login
+   git clone https://github.com/yourusername/academia-ai.git
+   cd academia-ai
    ```
 
-2. **Install Python dependencies**
+2. **Open in browser**:
+
+   - Navigate to `frontend/login.html`
+   - Or use a local server:
 
    ```bash
-   pip install -r requirements.txt
+   # Using Python
+   python -m http.server 8000
+
+   # Using Node.js
+   npx serve .
+
+   # Using PHP
+   php -S localhost:8000
    ```
 
-3. **Start the backend server**
+3. **Access the application**:
+   - Open `http://localhost:8000` in your browser
+   - You'll be automatically redirected to the login page
 
-   ```bash
-   python backend_main.py
-   ```
-
-   The backend will start on `http://localhost:5000`
-
-4. **Open the application**
-   - Open `index.html` in your web browser
-   - Or serve it using a local server:
-     ```bash
-     python -m http.server 8000
-     ```
-   - Then visit `http://localhost:8000`
+## 🔐 Authentication
 
 ### Demo Credentials
 
-**Admin User:**
+- **Username**: `admin`
+- **Password**: `admin`
 
-- Email: `admin@academia.edu`
-- Password: `admin123`
+### Features
 
-**Teacher User:**
+- **Session Management** - Persistent login state
+- **Auto-redirect** - Unauthenticated users redirected to login
+- **Secure Storage** - Local storage for user data
 
-- Email: `prof.smith@academia.edu`
-- Password: `teacher123`
+## 📁 Project Structure
 
-## 🏗️ Architecture
+```
+academia-ai/
+├── frontend/                 # Frontend application
+│   ├── login.html           # Login page with 3D background
+│   ├── dashboard.html       # Main dashboard
+│   ├── calendar.html        # Interactive calendar
+│   ├── analytics.html       # Analytics and charts
+│   ├── graph.html          # Performance graphs
+│   ├── attendance.html     # Attendance management
+│   ├── classes.html        # Class management
+│   ├── profile.html        # User profile
+│   ├── about.html          # About page
+│   ├── style/              # CSS stylesheets
+│   │   └── style.css      # Main stylesheet
+│   └── js/                 # JavaScript files
+│       └── global.js      # Global functionality
+├── backend/                # Backend API (if needed)
+├── assets/                 # Images and static assets
+├── index.html             # Main redirect page
+└── README.md              # This file
+```
+
+## 🎨 Design System
+
+### Color Palette
+
+- **Primary Blue**: `#3b82f6`
+- **Accent Green**: `#10b981`
+- **Warning Orange**: `#f59e0b`
+- **Error Red**: `#ef4444`
+- **Purple**: `#8b5cf6`
+
+### Typography
+
+- **Primary Font**: Segoe UI, system fonts
+- **Headings**: Bold weights for hierarchy
+- **Body Text**: Regular weight for readability
+
+## 🔧 Technologies Used
 
 ### Frontend
 
-- **HTML5**: Semantic markup for accessibility
-- **CSS3**: Modern styling with CSS Grid and Flexbox
-- **JavaScript**: Vanilla JS for interactivity and API communication
-- **Font Awesome**: Icons for better user experience
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with CSS Grid and Flexbox
+- **JavaScript (ES6+)** - Interactive functionality
+- **Chart.js** - Data visualization
+- **Font Awesome** - Icons
+- **Spline 3D** - Interactive 3D backgrounds
 
-### Backend
+### Features
 
-- **Flask**: Lightweight Python web framework
-- **SQLite**: Local database for data persistence
-- **JWT**: Secure authentication with JSON Web Tokens
-- **CORS**: Cross-origin resource sharing support
+- **Local Storage** - Data persistence
+- **Responsive Design** - Mobile-first approach
+- **Progressive Enhancement** - Works without JavaScript
+- **Accessibility** - ARIA labels and semantic HTML
 
-### Database Schema
+## 📱 Responsive Design
 
-- **Users**: Admin and teacher accounts
-- **Students**: Student information and records
-- **Courses**: Course details and scheduling
-- **Attendance**: Daily attendance records
-- **Schedule**: Course scheduling information
+The application is fully responsive and works on:
 
-## 📱 Usage
+- **Desktop** - Full feature set with side navigation
+- **Tablet** - Optimized layout with touch interactions
+- **Mobile** - Simplified navigation and touch-friendly controls
 
-### Login
+## 🌙 Dark/Light Mode
 
-1. Enter your email and password
-2. Check "Remember me" to stay logged in
-3. Click "Sign In" to access the dashboard
+- **Automatic Detection** - Respects system preferences
+- **Manual Toggle** - User can switch themes
+- **Persistent Settings** - Remembers user preference
+- **Complete Coverage** - All components support both themes
 
-### Dashboard
+## 🚀 Deployment
 
-- View overview statistics
-- Navigate through the interactive calendar
-- Access quick actions for common tasks
+### GitHub Pages
 
-### Attendance Management
+The project is configured for automatic deployment to GitHub Pages:
 
-1. Navigate to the Attendance page
-2. Select a course or date
-3. Mark attendance for students using the action buttons
-4. Export reports as needed
+1. **Push to main branch** - Triggers automatic deployment
+2. **GitHub Actions** - Builds and deploys automatically
+3. **Live Site** - Available at `https://username.github.io/repo-name`
 
-### Course Management
+### Custom Domain
 
-1. Go to the Classes page
-2. View all courses in a grid layout
-3. Click "Details" for more information
-4. Use "Join" to access course materials
+To use a custom domain:
 
-### Calendar
-
-1. Navigate to the Calendar page
-2. Use navigation arrows to change months
-3. View scheduled courses and events
-4. Export calendar data if needed
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-FLASK_SECRET_KEY=your_secret_key_here
-JWT_SECRET_KEY=your_jwt_secret_here
-DEBUG=True
-```
-
-### Database
-
-The application uses SQLite by default. The database file (`academia_ai.db`) will be created automatically on first run.
-
-## 🛠️ Development
-
-### Project Structure
-
-```
-ml-dashboard-login/
-├── index.html          # Main application interface
-├── style.css           # Styles and layout
-├── app.js              # Frontend JavaScript logic
-├── backend_main.py     # Flask backend server
-├── requirements.txt    # Python dependencies
-├── README.md          # Project documentation
-└── academia_ai.db     # SQLite database (created automatically)
-```
-
-### API Endpoints
-
-#### Authentication
-
-- `POST /api/auth/login` - User login
-- `POST /api/auth/register` - User registration
-
-#### Dashboard
-
-- `GET /api/dashboard/stats` - Get dashboard statistics
-
-#### Attendance
-
-- `GET /api/attendance` - Get attendance records
-- `POST /api/attendance` - Mark attendance
-
-#### Students
-
-- `GET /api/students` - Get all students
-- `POST /api/students` - Add new student
-
-#### Courses
-
-- `GET /api/courses` - Get all courses
-- `POST /api/courses` - Add new course
-
-#### Calendar
-
-- `GET /api/calendar/events` - Get calendar events
-
-#### Profile
-
-- `GET /api/profile` - Get user profile
-- `PUT /api/profile` - Update user profile
-
-## 🎨 Customization
-
-### Styling
-
-The application uses CSS custom properties for easy theming. Modify the `:root` variables in `style.css` to change colors and styling.
-
-### Adding Features
-
-1. **Frontend**: Add new pages in `index.html` and corresponding styles in `style.css`
-2. **Backend**: Add new routes in `backend_main.py`
-3. **Database**: Add new tables as needed in the `init_db()` function
-
-## 🔒 Security
-
-- **JWT Authentication**: Secure token-based authentication
-- **Password Hashing**: Passwords are hashed using Werkzeug
-- **CORS Protection**: Configured for secure cross-origin requests
-- **Input Validation**: Server-side validation for all inputs
-
-## 📊 Data Management
-
-### Sample Data
-
-The application includes sample data for demonstration:
-
-- 4 user accounts (admin and teachers)
-- 6 student records
-- 6 course records
-- Sample attendance data
-
-### Data Export
-
-- Attendance reports can be exported
-- Calendar data can be exported
-- All data is stored in SQLite database
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Backend not starting**
-
-   - Check if port 5000 is available
-   - Ensure all dependencies are installed
-   - Check Python version (3.8+ required)
-
-2. **Database errors**
-
-   - Delete `academia_ai.db` to reset the database
-   - Check file permissions in the project directory
-
-3. **CORS errors**
-   - Ensure the backend is running on the correct port
-   - Check browser console for specific error messages
-
-### Logs
-
-- Backend logs are displayed in the terminal
-- Check browser console for frontend errors
-- Database queries can be logged by enabling debug mode
+1. Add your domain to GitHub Pages settings
+2. Update the redirect in `index.html` if needed
+3. Configure DNS settings for your domain
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature-name`
+3. **Make your changes**
+4. **Commit your changes**: `git commit -m 'Add feature'`
+5. **Push to the branch**: `git push origin feature-name`
+6. **Submit a pull request**
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is open source and available under the [MIT License](LICENSE).
 
 ## 🆘 Support
 
-For support and questions:
+If you encounter any issues:
 
-- Create an issue in the repository
-- Check the troubleshooting section
-- Review the API documentation
+1. Check the browser console for errors
+2. Ensure you're using a modern browser
+3. Clear browser cache and try again
+4. Open an issue on GitHub with details
+
+## 🎯 Roadmap
+
+- [ ] **Real-time Collaboration** - Live updates for multiple users
+- [ ] **Advanced Analytics** - Machine learning insights
+- [ ] **Mobile App** - Native mobile application
+- [ ] **API Integration** - Backend server implementation
+- [ ] **Multi-language Support** - Internationalization
+- [ ] **Advanced Security** - Enhanced authentication system
 
 ---
 
-**Academia AI** - Empowering education through intelligent management solutions.
-# Academia-AI
+**Built with ❤️ for modern education management**
+# Academia-Ai
