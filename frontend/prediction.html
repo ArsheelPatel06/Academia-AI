@@ -1,215 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ML Student Performance Dashboard - Prediction</title>
-    <link rel="stylesheet" href="/frontend/style/model_style.css">
-</head>
-<body data-color-scheme="light" data-page-id="prediction">
-    <div id="appContainer" class="app-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="header-left">
-                    <div class="header-logo">
-                        <span class="logo-icon-small">🎓</span>
-                        <h1 class="header-title">ML Performance Dashboard</h1>
-                    </div>
-                </div>
-                <div class="header-right">
-                    <div class="header-actions">
-                        <button class="header-action" id="themeToggleHeader">
-                            <span class="action-icon" id="themeIconHeader">🌙</span>
-                        </button>
-                        <div class="user-menu">
-                            <button class="user-button" id="userMenuToggle">
-                                <span class="user-avatar" id="userAvatar">👤</span>
-                                <span class="user-name" id="userName">User</span>
-                                <span class="dropdown-arrow">▼</span>
-                            </button>
-                            <div class="user-dropdown hidden" id="userDropdown">
-                                <div class="user-info">
-                                    <div class="user-details">
-                                        <div class="user-display-name" id="userDisplayName">John Doe</div>
-                                        <div class="user-email" id="userEmail">john.doe@university.edu</div>
-                                    </div>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item" id="profileBtn">
-                                    <span class="item-icon">👤</span>
-                                    Profile Settings
-                                </a>
-                                <a href="#" class="dropdown-item" id="settingsBtn">
-                                    <span class="item-icon">⚙️</span>
-                                    Dashboard Settings
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item logout-item" id="logoutBtn">
-                                    <span class="item-icon">🚪</span>
-                                    Sign Out
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="layout">
-            <!-- Sidebar Navigation -->
-            <nav class="sidebar">
-                <div class="nav-menu">
-                    <a href="dashboard.html" class="nav-item">
-                        <span class="nav-icon">📊</span>
-                        <span class="nav-text">Overview</span>
-                    </a>
-                    <a href="prediction.html" class="nav-item active">
-                        <span class="nav-icon">🎯</span>
-                        <span class="nav-text">Make Prediction</span>
-                    </a>
-                    <a href="analytics.html" class="nav-item">
-                        <span class="nav-icon">📈</span>
-                        <span class="nav-text">Analytics</span>
-                    </a>
-                    <a href="history.html" class="nav-item">
-                        <span class="nav-icon">📝</span>
-                        <span class="nav-text">History</span>
-                    </a>
-                    <a href="about.html" class="nav-item">
-                        <span class="nav-icon">ℹ️</span>
-                        <span class="nav-text">About</span>
-                    </a>
-                </div>
-            </nav>
-
-            <main class="main-content">
-                <section id="prediction" class="content-section active">
-                    <div class="section-header">
-                        <h2>Student Performance Prediction</h2>
-                        <p class="section-subtitle">Enter student data to predict academic performance</p>
-                    </div>
-
-                    <div class="prediction-layout">
-                        <div class="prediction-form-container">
-                            <div class="card">
-                                <div class="card__header">
-                                    <h3>Student Information</h3>
-                                </div>
-                                <div class="card__body">
-                                    <form id="predictionForm" class="prediction-form">
-                                        <div class="form-row">
-                                            <div class="form-group">
-                                                <label class="form-label" for="attendance">
-                                                    Attendance Rate: <span id="attendanceValue" class="value-display">95</span>%
-                                                </label>
-                                                <input type="range" id="attendance" class="form-range" min="0" max="100" value="95">
-                                                <div class="range-markers">
-                                                    <span>0%</span>
-                                                    <span>50%</span>
-                                                    <span>100%</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label" for="testScores">
-                                                    Previous Test Scores: <span id="testScoresValue" class="value-display">88</span>
-                                                </label>
-                                                <input type="range" id="testScores" class="form-range" min="0" max="100" value="88">
-                                                <div class="range-markers">
-                                                    <span>0</span>
-                                                    <span>50</span>
-                                                    <span>100</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-row">
-                                            <div class="form-group">
-                                                <label class="form-label" for="studyHours">
-                                                    Study Hours per Week: <span id="studyHoursValue" class="value-display">25</span>h
-                                                </label>
-                                                <input type="range" id="studyHours" class="form-range" min="0" max="40" value="25">
-                                                <div class="range-markers">
-                                                    <span>0h</span>
-                                                    <span>20h</span>
-                                                    <span>40h</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="form-label" for="activities">Extracurricular Activities</label>
-                                                <select id="activities" class="form-control">
-                                                    <option value="Yes">Yes - Participates actively</option>
-                                                    <option value="No">No - Focuses on academics</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="form-label" for="support">Parental Support Level</label>
-                                            <div class="radio-group">
-                                                <label class="radio-label">
-                                                    <input type="radio" name="support" value="Low">
-                                                    <span class="radio-custom"></span>
-                                                    <span class="radio-text">Low</span>
-                                                </label>
-                                                <label class="radio-label">
-                                                    <input type="radio" name="support" value="Medium" checked>
-                                                    <span class="radio-custom"></span>
-                                                    <span class="radio-text">Medium</span>
-                                                </label>
-                                                <label class="radio-label">
-                                                    <input type="radio" name="support" value="High">
-                                                    <span class="radio-custom"></span>
-                                                    <span class="radio-text">High</span>
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <button type="submit" class="btn btn--primary btn--full-width prediction-submit" id="predictBtn">
-                                            <span class="btn-text">🎯 Predict Performance</span>
-                                            <span class="btn-loading hidden">Analyzing Data...</span>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="prediction-results-container">
-                            <div class="card prediction-results hidden" id="predictionResults">
-                                <div class="card__header">
-                                    <h3>Prediction Results</h3>
-                                </div>
-                                <div class="card__body">
-                                    <div class="result-main">
-                                        <div class="result-performance">
-                                            <div class="performance-label">Predicted Performance</div>
-                                            <div class="performance-value" id="performanceResult">Excellent</div>
-                                        </div>
-                                        <div class="result-confidence">
-                                            <div class="confidence-label">Confidence Score</div>
-                                            <div class="confidence-bar">
-                                                <div class="confidence-fill" id="confidenceFill"></div>
-                                            </div>
-                                            <div class="confidence-value" id="confidenceValue">94%</div>
-                                        </div>
-                                    </div>
-                                    <div class="result-recommendations">
-                                        <h4>Recommendations</h4>
-                                        <ul id="recommendationsList">
-                                            <!-- Populated by JavaScript -->
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Academia AI - Intelligent Education Management System"
+    />
+    <meta
+      name="keywords"
+      content="education, AI, attendance, schedule, teacher, dashboard"
+    />
+    <title>Academia AI - Prediction</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  <body data-color-scheme="light">
+    <div id="mainApp" class="main-app">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Academia AI</span>
+          </div>
         </div>
+
+        <div class="header-center">
+          <div class="welcome-text">
+            <span class="welcome-greeting">Welcome, Administrator!</span>
+            <span class="status-badge">ACTIVE</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search..." />
+          </div>
+
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">🌙</span>
+          </button>
+
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </div>
+
+          <div class="user-menu">
+            <button class="user-button" id="userMenuToggle">
+              <span class="user-avatar" id="userAvatar">J</span>
+              <span class="user-name" id="userName">John Doe</span>
+              <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="user-dropdown hidden" id="userDropdown">
+              <div class="user-info">
+                <div class="user-display-name" id="userDisplayName">John Doe</div>
+                <div class="user-email" id="userEmail">admin@university.edu</div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item" id="profileBtn">
+                <span class="item-icon">👤</span>
+                Profile Settings
+              </a>
+              <a href="#" class="dropdown-item" id="settingsBtn">
+                <span class="item-icon">⚙️</span>
+                Dashboard Settings
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+                <span class="item-icon">🚪</span>
+                Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Layout -->
+      <div class="app-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+          <div class="nav-menu">
+            <a href="dashboard.html" class="nav-item" data-nav="overview">
+              <i class="fas fa-home"></i>
+              <span>Overview</span>
+            </a>
+            <a href="prediction.html" class="nav-item" data-nav="prediction">
+              <i class="fas fa-bullseye"></i>
+              <span>Prediction</span>
+            </a>
+            <a href="analytics.html" class="nav-item" data-nav="analytics">
+              <i class="fas fa-chart-line"></i>
+              <span>Analytics</span>
+            </a>
+            <a href="graph.html" class="nav-item" data-nav="graph">
+              <i class="fas fa-chart-bar"></i>
+              <span>Graphs</span>
+            </a>
+            <a href="attendance.html" class="nav-item" data-nav="attendance">
+              <i class="fas fa-check"></i>
+              <span>Attendance</span>
+            </a>
+            <a href="classes.html" class="nav-item" data-nav="classes">
+              <i class="fas fa-desktop"></i>
+              <span>Classes</span>
+            </a>
+            <a href="calendar.html" class="nav-item" data-nav="calendar">
+              <i class="fas fa-calendar"></i>
+              <span>Calendar</span>
+            </a>
+            <a href="profile.html" class="nav-item" data-nav="profile">
+              <i class="fas fa-user"></i>
+              <span>Profile</span>
+            </a>
+            <a href="about.html" class="nav-item" data-nav="about">
+              <i class="fas fa-info-circle"></i>
+              <span>About</span>
+            </a>
+          </div>
+
+          <div class="sidebar-actions">
+            <a href="login.html" class="action-btn primary">
+              <span>Login</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="index.html" class="action-btn secondary">
+              <span>Sign Out</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </nav>
+        <main class="main-content">
+          <section id="prediction" class="content-section active">
+            <div class="section-header">
+              <h2>Student Performance Prediction</h2>
+              <p class="section-subtitle">
+                Enter student data to predict academic performance
+              </p>
+            </div>
+
+            <div class="prediction-layout">
+              <div class="prediction-form-container">
+                <div class="card">
+                  <div class="card__header">
+                    <h3>Student Information</h3>
+                  </div>
+                  <div class="card__body">
+                    <form id="predictionForm" class="prediction-form">
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label class="form-label" for="attendance">
+                            Attendance Rate:
+                            <span id="attendanceValue" class="value-display"
+                              >95</span
+                            >%
+                          </label>
+                          <input
+                            type="range"
+                            id="attendance"
+                            class="form-range"
+                            min="0"
+                            max="100"
+                            value="95"
+                          />
+                          <div class="range-markers">
+                            <span>0%</span>
+                            <span>50%</span>
+                            <span>100%</span>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="form-label" for="testScores">
+                            Previous Test Scores:
+                            <span id="testScoresValue" class="value-display"
+                              >88</span
+                            >
+                          </label>
+                          <input
+                            type="range"
+                            id="testScores"
+                            class="form-range"
+                            min="0"
+                            max="100"
+                            value="88"
+                          />
+                          <div class="range-markers">
+                            <span>0</span>
+                            <span>50</span>
+                            <span>100</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label class="form-label" for="studyHours">
+                            Study Hours per Week:
+                            <span id="studyHoursValue" class="value-display"
+                              >25</span
+                            >h
+                          </label>
+                          <input
+                            type="range"
+                            id="studyHours"
+                            class="form-range"
+                            min="0"
+                            max="40"
+                            value="25"
+                          />
+                          <div class="range-markers">
+                            <span>0h</span>
+                            <span>20h</span>
+                            <span>40h</span>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="form-label" for="activities"
+                            >Extracurricular Activities</label
+                          >
+                          <select id="activities" class="form-control">
+                            <option value="Yes">
+                              Yes - Participates actively
+                            </option>
+                            <option value="No">
+                              No - Focuses on academics
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label class="form-label" for="subject">
+                            <i class="fas fa-book-open"></i>
+                            Primary Subject
+                            <span class="required-indicator">*</span>
+                          </label>
+                          <div class="subject-select-container">
+                            <select id="subject" class="form-control subject-select">
+                              <option value="" disabled selected>Choose</option>
+                              <option value="Mathematics">
+                                <i class="fas fa-calculator"></i> Mathematics
+                              </option>
+                              <option value="Physics">
+                                <i class="fas fa-atom"></i> Physics
+                              </option>
+                              <option value="Chemistry">
+                                <i class="fas fa-flask"></i> Chemistry
+                              </option>
+                              <option value="Biology">
+                                <i class="fas fa-dna"></i> Biology
+                              </option>
+                              <option value="Computer Science">
+                                <i class="fas fa-laptop-code"></i> Computer Science
+                              </option>
+                              <option value="English">
+                                <i class="fas fa-book"></i> English
+                              </option>
+                              <option value="History">
+                                <i class="fas fa-landmark"></i> History
+                              </option>
+                              <option value="Geography">
+                                <i class="fas fa-globe"></i> Geography
+                              </option>
+                              <option value="Economics">
+                                <i class="fas fa-chart-line"></i> Economics
+                              </option>
+                              <option value="Literature">
+                                <i class="fas fa-quote-right"></i> Literature
+                              </option>
+                            </select>
+                            <div class="select-arrow">
+                              <i class="fas fa-chevron-down"></i>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label class="form-label" for="support"
+                            >Parental Support Level</label
+                          >
+                          <div class="radio-group">
+                            <label class="radio-label">
+                              <input type="radio" name="support" value="Low" />
+                              <span class="radio-custom"></span>
+                              <span class="radio-text">Low</span>
+                            </label>
+                            <label class="radio-label">
+                              <input
+                                type="radio"
+                                name="support"
+                                value="Medium"
+                                checked
+                              />
+                              <span class="radio-custom"></span>
+                              <span class="radio-text">Medium</span>
+                            </label>
+                            <label class="radio-label">
+                              <input type="radio" name="support" value="High" />
+                              <span class="radio-custom"></span>
+                              <span class="radio-text">High</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        type="submit"
+                        class="btn btn--primary btn--full-width prediction-submit"
+                        id="predictBtn"
+                      >
+                        <span class="btn-text">🎯 Predict Performance</span>
+                        <span class="btn-loading hidden"
+                          >Analyzing Data...</span
+                        >
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="prediction-results-container">
+                <div
+                  class="card prediction-results hidden"
+                  id="predictionResults"
+                >
+                  <div class="card__header">
+                    <h3>Prediction Results</h3>
+                  </div>
+                  <div class="card__body">
+                    <div class="result-main">
+                      <div class="result-performance">
+                        <div class="performance-label">
+                          Predicted Performance
+                        </div>
+                        <div class="performance-value" id="performanceResult">
+                          Excellent
+                        </div>
+                        <div class="subject-info" id="subjectInfo">
+                          Subject: Mathematics
+                        </div>
+                      </div>
+                      <div class="result-confidence">
+                        <div class="confidence-label">Confidence Score</div>
+                        <div class="confidence-bar">
+                          <div
+                            class="confidence-fill"
+                            id="confidenceFill"
+                          ></div>
+                        </div>
+                        <div class="confidence-value" id="confidenceValue">
+                          94%
+                        </div>
+                      </div>
+                    </div>
+                    <div class="result-recommendations">
+                      <h4>Recommendations</h4>
+                      <ul id="recommendationsList">
+                        <!-- Populated by JavaScript -->
+                      </ul>
+                            </div>
+      </div>
     </div>
-    <div id="toastContainer" class="toast-container"></div>
-    <script src="/model.js"></script>
-</body>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="js/global.js"></script>
+    
+  </body>
 </html>

@@ -1,0 +1,38 @@
+{
+  "name": "academia-ai-frontend",
+  "version": "1.0.0",
+  "description": "Academia AI - Intelligent Education Management System Frontend",
+  "main": "js/global.js",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Frontend build completed'",
+    "test": "echo 'Frontend tests completed'",
+    "lint": "echo 'Frontend linting completed'",
+    "clean": "find . -name '.DS_Store' -delete",
+    "format": "echo 'Code formatting completed'"
+  },
+  "keywords": [
+    "education",
+    "ai",
+    "dashboard",
+    "frontend",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Academia AI Team",
+  "license": "MIT",
+  "dependencies": {
+    "font-awesome": "^6.0.0"
+  },
+  "devDependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

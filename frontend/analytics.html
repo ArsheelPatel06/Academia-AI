@@ -1,117 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ML Student Performance Dashboard - Analytics</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="/frontend/style/model_style.css">
-</head>
-<body data-color-scheme="light" data-page-id="analytics">
-    <div id="appContainer" class="app-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="header-left">
-                    <div class="header-logo">
-                        <span class="logo-icon-small">🎓</span>
-                        <h1 class="header-title">ML Performance Dashboard</h1>
-                    </div>
-                </div>
-                <div class="header-right">
-                    <div class="header-actions">
-                        <button class="header-action" id="themeToggleHeader">
-                            <span class="action-icon" id="themeIconHeader">🌙</span>
-                        </button>
-                        <div class="user-menu">
-                            <button class="user-button" id="userMenuToggle">
-                                <span class="user-avatar" id="userAvatar">👤</span>
-                                <span class="user-name" id="userName">User</span>
-                                <span class="dropdown-arrow">▼</span>
-                            </button>
-                            <div class="user-dropdown hidden" id="userDropdown">
-                                <div class="user-info">
-                                    <div class="user-details">
-                                        <div class="user-display-name" id="userDisplayName">John Doe</div>
-                                        <div class="user-email" id="userEmail">john.doe@university.edu</div>
-                                    </div>
-                                </div>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item" id="profileBtn">
-                                    <span class="item-icon">👤</span>
-                                    Profile Settings
-                                </a>
-                                <a href="#" class="dropdown-item" id="settingsBtn">
-                                    <span class="item-icon">⚙️</span>
-                                    Dashboard Settings
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item logout-item" id="logoutBtn">
-                                    <span class="item-icon">🚪</span>
-                                    Sign Out
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="layout">
-            <!-- Sidebar Navigation -->
-            <nav class="sidebar">
-                <div class="nav-menu">
-                    <a href="dashboard.html" class="nav-item">
-                        <span class="nav-icon">📊</span>
-                        <span class="nav-text">Overview</span>
-                    </a>
-                    <a href="prediction.html" class="nav-item">
-                        <span class="nav-icon">🎯</span>
-                        <span class="nav-text">Make Prediction</span>
-                    </a>
-                    <a href="analytics.html" class="nav-item active">
-                        <span class="nav-icon">📈</span>
-                        <span class="nav-text">Analytics</span>
-                    </a>
-                    <a href="history.html" class="nav-item">
-                        <span class="nav-icon">📝</span>
-                        <span class="nav-text">History</span>
-                    </a>
-                    <a href="about.html" class="nav-item">
-                        <span class="nav-icon">ℹ️</span>
-                        <span class="nav-text">About</span>
-                    </a>
-                </div>
-            </nav>
-
-            <main class="main-content">
-                <section id="analytics" class="content-section active">
-                    <div class="section-header">
-                        <h2>Analytics & Insights</h2>
-                        <p class="section-subtitle">Explore data trends and model insights</p>
-                    </div>
-
-                    <div class="analytics-grid">
-                        <div class="chart-container" style="position: relative; height: 400px;">
-                            <div class="chart-header">
-                                <h3>Performance Trends</h3>
-                                <p class="chart-subtitle">Monthly performance distribution</p>
-                            </div>
-                            <canvas id="trendsChart"></canvas>
-                        </div>
-                        <div class="chart-container" style="position: relative; height: 400px;">
-                            <div class="chart-header">
-                                <h3>Model Metrics</h3>
-                                <p class="chart-subtitle">Accuracy, precision, recall, F1-score</p>
-                            </div>
-                            <canvas id="metricsChart"></canvas>
-                        </div>
-                    </div>
-                </section>
-            </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Academia AI - Intelligent Education Management System"
+    />
+    <meta
+      name="keywords"
+      content="education, AI, attendance, schedule, teacher, dashboard"
+    />
+    <title>Academia AI - Analytics</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  <body data-color-scheme="light">
+    <div id="mainApp" class="main-app">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Academia AI</span>
+          </div>
         </div>
+
+        <div class="header-center">
+          <div class="welcome-text">
+            <span class="welcome-greeting">Welcome, Administrator!</span>
+            <span class="status-badge">ACTIVE</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search..." />
+          </div>
+
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">🌙</span>
+          </button>
+
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </div>
+
+          <div class="user-menu">
+            <button class="user-button" id="userMenuToggle">
+              <span class="user-avatar" id="userAvatar">J</span>
+              <span class="user-name" id="userName">John Doe</span>
+              <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="user-dropdown hidden" id="userDropdown">
+              <div class="user-info">
+                <div class="user-display-name" id="userDisplayName">John Doe</div>
+                <div class="user-email" id="userEmail">admin@university.edu</div>
+              </div>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item" id="profileBtn">
+                <span class="item-icon">👤</span>
+                Profile Settings
+              </a>
+              <a href="#" class="dropdown-item" id="settingsBtn">
+                <span class="item-icon">⚙️</span>
+                Dashboard Settings
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item logout-item" id="logoutBtn">
+                <span class="item-icon">🚪</span>
+                Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Layout -->
+      <div class="app-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+          <div class="nav-menu">
+            <a href="dashboard.html" class="nav-item" data-nav="overview">
+              <i class="fas fa-home"></i>
+              <span>Overview</span>
+            </a>
+            <a href="prediction.html" class="nav-item" data-nav="prediction">
+              <i class="fas fa-bullseye"></i>
+              <span>Prediction</span>
+            </a>
+            <a href="analytics.html" class="nav-item" data-nav="analytics">
+              <i class="fas fa-chart-line"></i>
+              <span>Analytics</span>
+            </a>
+            <a href="graph.html" class="nav-item" data-nav="graph">
+              <i class="fas fa-chart-bar"></i>
+              <span>Graphs</span>
+            </a>
+            <a href="attendance.html" class="nav-item" data-nav="attendance">
+              <i class="fas fa-check"></i>
+              <span>Attendance</span>
+            </a>
+            <a href="classes.html" class="nav-item" data-nav="classes">
+              <i class="fas fa-desktop"></i>
+              <span>Classes</span>
+            </a>
+            <a href="calendar.html" class="nav-item" data-nav="calendar">
+              <i class="fas fa-calendar"></i>
+              <span>Calendar</span>
+            </a>
+            <a href="profile.html" class="nav-item" data-nav="profile">
+              <i class="fas fa-user"></i>
+              <span>Profile</span>
+            </a>
+            <a href="about.html" class="nav-item" data-nav="about">
+              <i class="fas fa-info-circle"></i>
+              <span>About</span>
+            </a>
+          </div>
+
+          <div class="sidebar-actions">
+            <a href="login.html" class="action-btn primary">
+              <span>Login</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="index.html" class="action-btn secondary">
+              <span>Sign Out</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </nav>
+        <main class="main-content">
+          <section id="analytics" class="content-section active">
+            <div class="section-header">
+              <h2>Analytics & Insights</h2>
+              <p class="section-subtitle">
+                Explore data trends and model insights
+              </p>
+            </div>
+
+            <div class="analytics-grid">
+              <div class="chart-container analytics-chart-box">
+                <div class="chart-header">
+                  <h3>Performance Trends Over Time</h3>
+                  <p class="chart-subtitle">Monthly performance distribution</p>
+                </div>
+                <div class="chart-content">
+                  <canvas id="trendsChart"></canvas>
+                </div>
+              </div>
+              <div class="chart-container analytics-chart-box">
+                <div class="chart-header">
+                  <h3>Model Performance Metrics</h3>
+                  <p class="chart-subtitle">
+                    Accuracy, precision, recall, F1-score
+                  </p>
+                </div>
+                <div class="chart-content">
+                  <canvas id="metricsChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- Additional Analytics Content -->
+            <div class="dashboard-grid" style="margin-top: var(--space-8);">
+              <div class="dashboard-card">
+                <h3>Student Performance Analytics</h3>
+                <div class="progress-stats">
+                  <div class="stat-item">
+                    <span class="stat-label">Excellent</span>
+                    <span class="stat-value">45%</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Good</span>
+                    <span class="stat-value">30%</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Average</span>
+                    <span class="stat-value">20%</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Poor</span>
+                    <span class="stat-value">5%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card">
+                <h3>Model Performance</h3>
+                <div class="progress-stats">
+                  <div class="stat-item">
+                    <span class="stat-label">Accuracy</span>
+                    <span class="stat-value">89.2%</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Precision</span>
+                    <span class="stat-value">87.5%</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Recall</span>
+                    <span class="stat-value">91.3%</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">F1-Score</span>
+                    <span class="stat-value">89.4%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
-    <div id="toastContainer" class="toast-container"></div>
-    <script src="/model.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/global.js"></script>
+  </body>
 </html>

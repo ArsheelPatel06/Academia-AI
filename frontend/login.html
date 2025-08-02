@@ -17,36 +17,66 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.10.39/build/spline-viewer.js"
+    ></script>
   </head>
   <body>
     <!-- Login Page -->
     <div id="loginPage" class="login-page">
+      <!-- Background Animation -->
+      <div class="login-background">
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+          <div class="shape shape-4"></div>
+          <div class="shape shape-5"></div>
+        </div>
+      </div>
+
+      <!-- Login Container (Left Side) -->
       <div class="login-container">
         <div class="login-card">
+          <!-- Enhanced Header -->
           <div class="login-header">
             <div class="logo-section">
-              <div class="logo-icon">🎓</div>
-              <h1>Academia AI</h1>
+              <div class="logo-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="logo-text">
+                <h1>Academia AI</h1>
+                <div class="logo-subtitle">
+                  Intelligent Education Management
+                </div>
+              </div>
             </div>
-            <p class="login-subtitle">
-              Intelligent Education Management System
-            </p>
+            <div class="welcome-message">
+              <h2>Welcome Back!</h2>
+              <p>Sign in to access your educational dashboard</p>
+            </div>
           </div>
 
+          <!-- Enhanced Form -->
           <form id="loginForm" class="login-form">
             <div class="form-group">
-              <label for="email">Username</label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                placeholder="Enter your username"
-                required
-              />
+              <div class="input-wrapper">
+                <i class="fas fa-user input-icon"></i>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your username"
+                  required
+                />
+                <div class="input-focus-border"></div>
+              </div>
             </div>
+
             <div class="form-group">
-              <label for="password">Password</label>
-              <div class="password-field">
+              <div class="input-wrapper">
+                <i class="fas fa-lock input-icon"></i>
                 <input
                   type="password"
                   id="password"
@@ -62,6 +92,7 @@
                 >
                   <i class="fas fa-eye"></i>
                 </button>
+                <div class="input-focus-border"></div>
               </div>
             </div>
 
@@ -69,37 +100,103 @@
               <label class="checkbox-container">
                 <input type="checkbox" id="rememberMe" />
                 <span class="checkmark"></span>
-                Remember me
+                <span class="checkbox-text">Remember me</span>
               </label>
-              <a href="index.html" class="forgot-password">Forgot password?</a>
+              <a href="index.html" class="forgot-password">
+                <i class="fas fa-key"></i>
+                Forgot password?
+              </a>
             </div>
 
             <button type="submit" class="login-btn">
-              <span class="btn-text">Sign In</span>
-              <span class="btn-loading hidden">Signing In...</span>
+              <span class="btn-text">
+                <i class="fas fa-sign-in-alt"></i>
+                Sign In
+              </span>
+              <span class="btn-loading hidden">
+                <i class="fas fa-spinner fa-spin"></i>
+                Signing In...
+              </span>
             </button>
           </form>
 
+          <!-- Enhanced Demo Credentials -->
           <div class="demo-credentials">
-            <h4>Demo Credentials</h4>
-            <div class="demo-item"><strong>Username:</strong> admin</div>
-            <div class="demo-item"><strong>Password:</strong> admin</div>
+            <div class="demo-header">
+              <i class="fas fa-info-circle"></i>
+              <h4>Demo Credentials</h4>
+            </div>
+            <div class="demo-content">
+              <div class="demo-item">
+                <i class="fas fa-user"></i>
+                <span><strong>Username:</strong> admin</span>
+              </div>
+              <div class="demo-item">
+                <i class="fas fa-lock"></i>
+                <span><strong>Password:</strong> admin</span>
+              </div>
+            </div>
+            <div class="demo-note">
+              <i class="fas fa-lightbulb"></i>
+              <span>Click on credentials to auto-fill</span>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="login-footer">
+            <p>&copy; 2024 Academia AI. All rights reserved.</p>
+            <div class="footer-links">
+              <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+              <a href="#"><i class="fas fa-file-contract"></i> Terms</a>
+              <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+            </div>
           </div>
         </div>
+      </div>
+
+      <!-- Spline 3D Viewer (Right Side) -->
+      <div class="spline-container">
+        <div class="model-overlay">
+          <div class="model-text">
+            <h2>Ready to learn?</h2>
+            <p>Discover the future of education</p>
+          </div>
+        </div>
+        <spline-viewer
+          url="https://prod.spline.design/gOA-Pp9SSlCobnwj/scene.splinecode"
+        ></spline-viewer>
       </div>
     </div>
 
     <script>
-      // Login functionality
+      // Enhanced Login functionality
       document.addEventListener("DOMContentLoaded", function () {
         const loginForm = document.getElementById("loginForm");
         const passwordToggle = document.getElementById("passwordToggle");
         const passwordInput = document.getElementById("password");
+        const emailInput = document.getElementById("email");
         const loginBtn = document.querySelector(".login-btn");
         const btnText = document.querySelector(".btn-text");
         const btnLoading = document.querySelector(".btn-loading");
+        const demoItems = document.querySelectorAll(".demo-item");
 
-        // Toggle password visibility
+        // Auto-fill demo credentials
+        demoItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            const text = this.textContent;
+            if (text.includes("admin")) {
+              if (text.includes("Username")) {
+                emailInput.value = "admin";
+                emailInput.focus();
+              } else if (text.includes("Password")) {
+                passwordInput.value = "admin";
+                passwordInput.focus();
+              }
+            }
+          });
+        });
+
+        // Enhanced password toggle
         passwordToggle.addEventListener("click", function () {
           const type =
             passwordInput.getAttribute("type") === "password"
@@ -110,36 +207,53 @@
           const icon = this.querySelector("i");
           icon.className =
             type === "password" ? "fas fa-eye" : "fas fa-eye-slash";
+
+          // Add animation
+          this.style.transform = "scale(0.9)";
+          setTimeout(() => {
+            this.style.transform = "scale(1)";
+          }, 100);
         });
 
-        // Handle login form submission
+        // Enhanced form submission
         loginForm.addEventListener("submit", function (e) {
           e.preventDefault();
 
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
+          const email = emailInput.value.trim();
+          const password = passwordInput.value.trim();
           const rememberMe = document.getElementById("rememberMe").checked;
 
-          // Show loading state
+          // Validation
+          if (!email || !password) {
+            showError("Please fill in all fields");
+            return;
+          }
+
+          // Show loading state with enhanced animation
           loginBtn.classList.add("loading");
           btnText.classList.add("hidden");
           btnLoading.classList.remove("hidden");
 
-          // Simulate authentication (replace with actual API call)
+          // Simulate authentication
           setTimeout(() => {
             if (email === "admin" && password === "admin") {
-              if (rememberMe) {
-                localStorage.setItem("isLoggedIn", "true");
-                localStorage.setItem("userEmail", email);
-                localStorage.setItem("userRole", "admin");
-              } else {
-                sessionStorage.setItem("isLoggedIn", "true");
-                sessionStorage.setItem("userEmail", email);
-                sessionStorage.setItem("userRole", "admin");
-              }
-              window.location.href = "dashboard.html";
+              // Success animation
+              loginBtn.classList.add("success");
+
+              setTimeout(() => {
+                if (rememberMe) {
+                  localStorage.setItem("isLoggedIn", "true");
+                  localStorage.setItem("userEmail", email);
+                  localStorage.setItem("userRole", "admin");
+                } else {
+                  sessionStorage.setItem("isLoggedIn", "true");
+                  sessionStorage.setItem("userEmail", email);
+                  sessionStorage.setItem("userRole", "admin");
+                }
+                window.location.href = "dashboard.html";
+              }, 500);
             } else {
-              alert("Invalid credentials. Please try again.");
+              showError("Invalid credentials. Please try again.");
               loginBtn.classList.remove("loading");
               btnText.classList.remove("hidden");
               btnLoading.classList.add("hidden");
@@ -147,12 +261,131 @@
           }, 1200);
         });
 
+        // Error display function
+        function showError(message) {
+          const errorDiv = document.createElement("div");
+          errorDiv.className = "login-error";
+          errorDiv.innerHTML = `
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>${message}</span>
+          `;
+
+          const form = document.querySelector(".login-form");
+          form.insertBefore(errorDiv, form.firstChild);
+
+          setTimeout(() => {
+            errorDiv.remove();
+          }, 3000);
+        }
+
         // Check if user is already logged in
         const isLoggedIn =
           localStorage.getItem("isLoggedIn") ||
           sessionStorage.getItem("isLoggedIn");
         if (isLoggedIn === "true") {
           window.location.href = "dashboard.html";
+        }
+
+        // Add input focus effects
+        const inputs = document.querySelectorAll("input");
+        inputs.forEach((input) => {
+          input.addEventListener("focus", function () {
+            this.parentElement.classList.add("focused");
+          });
+
+          input.addEventListener("blur", function () {
+            if (!this.value) {
+              this.parentElement.classList.remove("focused");
+            }
+          });
+        });
+
+        // Simple Spline branding removal
+        const splineViewer = document.querySelector("spline-viewer");
+        if (splineViewer) {
+          splineViewer.addEventListener("load", function () {
+            // Set CSS custom properties
+            splineViewer.style.setProperty("--spline-viewer-branding", "none");
+            splineViewer.style.setProperty("--spline-branding", "none");
+
+            // Targeted branding removal
+            setTimeout(() => {
+              const brandingSelectors = [
+                "[data-spline-branding]",
+                '[class*="branding"]',
+                '[class*="spline-branding"]',
+                '[id*="branding"]',
+                'button[class*="spline"]',
+                'a[class*="spline"]',
+                'div[style*="spline"]',
+                'span[style*="spline"]',
+              ];
+
+              brandingSelectors.forEach((selector) => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach((el) => {
+                  if (
+                    !el.closest(".model-overlay") &&
+                    !el.closest(".model-text") &&
+                    !el.closest("spline-viewer")
+                  ) {
+                    el.style.display = "none";
+                    el.style.visibility = "hidden";
+                    el.style.opacity = "0";
+                    el.style.pointerEvents = "none";
+                    el.style.position = "absolute";
+                    el.style.left = "-9999px";
+                    el.style.top = "-9999px";
+                  }
+                });
+              });
+
+              // Remove only text containing "Built with Spline"
+              const allElements = document.querySelectorAll("*");
+              allElements.forEach((el) => {
+                if (
+                  el.textContent &&
+                  el.textContent.includes("Built with Spline")
+                ) {
+                  if (
+                    !el.closest(".model-overlay") &&
+                    !el.closest(".model-text") &&
+                    !el.closest("spline-viewer")
+                  ) {
+                    el.style.display = "none";
+                    el.style.visibility = "hidden";
+                    el.style.opacity = "0";
+                    el.style.pointerEvents = "none";
+                    el.style.position = "absolute";
+                    el.style.left = "-9999px";
+                    el.style.top = "-9999px";
+                  }
+                }
+              });
+            }, 1000);
+
+            // Continuous monitoring for new branding elements
+            setInterval(() => {
+              const newBrandingElements = document.querySelectorAll(
+                '[class*="branding"], [id*="branding"], [data-branding], button, a'
+              );
+              newBrandingElements.forEach((el) => {
+                if (
+                  !el.closest(".model-overlay") &&
+                  !el.closest(".model-text") &&
+                  !el.closest("spline-viewer")
+                ) {
+                  el.style.display = "none";
+                  el.style.visibility = "hidden";
+                  el.style.opacity = "0";
+                  el.style.pointerEvents = "none";
+                  el.style.position = "absolute";
+                  el.style.left = "-9999px";
+                  el.style.top = "-9999px";
+                }
+              });
+            }, 1000);
+          });
         }
       });
     </script>

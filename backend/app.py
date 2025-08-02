@@ -649,4 +649,4 @@ def internal_error(error):
 if __name__ == '__main__':
     print("Academia AI - Education Management System Backend")
     print("Starting server...")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000) 
